@@ -349,7 +349,7 @@ def generate():
     return openapi_spec
 
 
-if __name__ == '__main__':
+def generate_and_save():
     openapi_spec = generate()
     with open('openapi_spec.json', 'w') as f:
         json.dump(openapi_spec, f, indent=2)
