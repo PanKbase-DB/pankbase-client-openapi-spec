@@ -303,7 +303,7 @@ def get_slim_embedded_fields():
 
 
 def get_schema_names_to_collection_names(schema_keys):
-    d = requests.get('https://api.data.igvf.org/collection-titles').json()
+    d = requests.get(f'{URL}/collection-titles').json()
     del d['@type']
     rs = {v: k for k, v in d.items() if k in schema_keys}
     collection_names = {}
@@ -331,7 +331,7 @@ def clean_schemas(schemas):
 
 
 def get_schemas():
-    res = requests.get('https://api.data.igvf.org/profiles').json()
+    res = requests.get(f'{URL}/profiles').json()
     subtypes = res['_subtypes']
     schemas = {
         k: v for
