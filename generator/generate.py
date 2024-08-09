@@ -188,7 +188,7 @@ def fill_in_collection_template(schema_name, schema, schema_names_to_collection_
         prop = v['path']
         prop_schema = v['schema']
         add_as_item = 'items' not in prop_schema # We always want to be able to enter multiple search values.
-        exclude = ['default', 'uniqueItems', 'notSubmittable', 'readonly', 'permission', 'submissionExample', 'serverDefault', 'minItems', 'format']
+        exclude = ['default', 'uniqueItems', 'notSubmittable', 'readonly', 'permission', 'submissionExample', 'serverDefault', 'minItems', 'format', 'oneOf', 'anyOf']
         filtered_prop_schema = {k: v for k, v in prop_schema.items() if k not in exclude}
         if '@type' in prop:
             continue
