@@ -266,10 +266,14 @@ def normalize_schemas(schemas):
     return schemas
 
 
-def get_slim_embedded_fields():
+def get_raw_embedded_fields():
+    return requests.get(f'{URL}/embedded-fields').json()
+
+
+def get_slim_embedded_fields(raw_embedded_fields, raw_schemas):
     final = {}
-    embedded_fields = requests.get(f'{URL}/embedded-fields').json()
-    all_schemas = {k: v for k, v in requests.get(f'{URL}/profiles').json().items() if '@' not in k and '_' not in k}
+    embedded_fields = raw_embedded_fields
+    all_schemas = raw_schemas
     for item_type in all_schemas.keys():
         fields = []
         print('ITEM', item_type)
@@ -332,7 +336,6 @@ def clean_schemas(schemas):
 
 def get_schemas():
     res = requests.get(f'{URL}/profiles').json()
-    subtypes = res['_subtypes']
     schemas = {
         k: v for
         k, v in res.items()
@@ -342,9 +345,11 @@ def get_schemas():
 
 
 def generate():
-    schemas = normalize_schemas(clean_schemas(get_schemas()))
+    raw_schemas = get_schemas()
+    schemas = normalize_schemas(clean_schemas(raw_schemas))
     schema_names_to_collection_names = get_schema_names_to_collection_names(schemas.keys())
-    slim_embedded_fields = get_slim_embedded_fields()
+    raw_embedded_fields = get_raw_embedded_fields()
+    slim_embedded_fields = get_slim_embedded_fields(raw_embedded_fields, raw_schemas)
     openapi_spec = generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields)
     return openapi_spec
 
