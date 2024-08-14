@@ -328,6 +328,19 @@ def test_generator_combine_schemas(raw_schemas):
     assert set(actual['properties'].keys()) == expected_keys
 
 
+def test_generator_property_is_slim_embedded(raw_embedded_fields, raw_schemas):
+    from generator.generate import get_slim_embedded_fields
+    from generator.generate import property_is_slim_embedded
+    slim_embedded_fields = get_slim_embedded_fields(raw_embedded_fields, raw_schemas)
+    slim_embedded_keys = slim_embedded_fields['MeasurementSet'].keys()
+    assert not property_is_slim_embedded('abc', slim_embedded_keys)
+    assert property_is_slim_embedded('assay_term.term_name', slim_embedded_keys)
+    assert property_is_slim_embedded(
+        'samples.construct_library_sets.small_scale_gene_list.name',
+        slim_embedded_keys
+    )
+
+
 '''
 
  import json
@@ -350,17 +363,6 @@ def test_generator_fill_in_collection_template(schema_name, schema, schema_names
 def test_generator_property_is_slim_embedded(prop, embedded_fields_keys):
 
 
-
-def test_generator_get_slim_embedded_fields():
-
-
-def test_generator_get_schema_names_to_collection_names(schema_keys):
-
-
-def test_generator_clean_schemas(schemas):
-
-
-def test_generator_get_schemas():
 
 
 def test_generator_generate():
