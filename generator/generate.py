@@ -178,7 +178,7 @@ def fill_in_collection_template(schema_name, schema, schema_names_to_collection_
             {
                 "name": f"{prop}",
                 "in": "query",
-                "schema": filtered_prop_schema if not add_as_item else {"type": "array", "items": filtered_prop_schema},
+                "schema": sort_dict(clean_schema(filtered_prop_schema if not add_as_item else {"type": "array", "items": filtered_prop_schema})),
                 "description": f"Filter by {prop}",
                 "style": "form",
                 "explode": True,
@@ -203,7 +203,7 @@ def fill_in_collection_template(schema_name, schema, schema_names_to_collection_
             {
                 "name": f"{prop}",
                 "in": "query",
-                "schema": filtered_prop_schema if not add_as_item else {"type": "array", "items": filtered_prop_schema},
+                "schema": sort_dict(clean_schema(filtered_prop_schema if not add_as_item else {"type": "array", "items": filtered_prop_schema})),
                 "description": f"Filter by {prop}",
                 "style": "form",
                 "explode": True,
@@ -325,6 +325,16 @@ def get_schemas():
         if not k.startswith('_') and not k.startswith('@')
     }
     return schemas
+
+
+def sort_dict(d):
+    sorted_dict = {}
+    for k, v in sorted(d.items(), reverse=True):
+        if isinstance(v, dict):
+            sorted_dict[k] = sort_dict(v)
+        else:
+            sorted_dict[k] = v
+    return sorted_dict
 
 
 def generate():
