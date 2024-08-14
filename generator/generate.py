@@ -109,7 +109,7 @@ def traverse(all_schemas, properties, path, include, exclude, is_an_item=False, 
 
 # copied from snovault
 def ensurelist(value):
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         return [value]
     return value
 

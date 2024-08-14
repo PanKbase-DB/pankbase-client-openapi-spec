@@ -286,24 +286,58 @@ def test_generator_raw_schema_traverse(raw_schemas):
     ]
     assert actual == expected
 
+
+def test_generator_ensurelist():
+    from generator.generate import ensurelist
+    result = ensurelist('a')
+    assert result == ['a']
+
+
+def test_generator_combine_schemas(raw_schemas):
+    from generator.generate import combine_schemas
+    assert combine_schemas({}, {}) == {}
+    actual = combine_schemas(raw_schemas['AccessKey'], raw_schemas['User'])
+    expected_keys = set(
+        [
+            'schema_version',
+            'submitter_comment',
+            'notes',
+            'status',
+            'description',
+            'summary',
+            'aliases',
+            '@id',
+            'creation_timestamp',
+            '@type',
+            'submitted_by',
+            'uuid',
+            'user',
+            'secret_access_key_hash',
+            'access_key_id',
+            'first_name',
+            'job_title',
+            'submits_for',
+            'lab',
+            'viewing_groups',
+            'email',
+            'last_name',
+            'groups',
+            'title'
+        ]
+    )
+    assert set(actual['properties'].keys()) == expected_keys
+
+
 '''
 
  import json
     print(json.dumps(sequence_file, indent=4))
     print('aa;lsdkjf;oafskjsda!!!!!\n\n')
     print(json.dumps(normalized_sequence_file, indent=4))
+
 def test_generator_generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields):
 
 
-
-def test_generator_get_properties_for_item_type(schemas, item_type):
-
-
-def test_generator_traverse(all_schemas, properties, path, include, exclude, is_an_item=False, processed=None):
-
-
-# copied from snovault
-def test_generator_ensurelist(value):
 
 
 # copied from snovault
