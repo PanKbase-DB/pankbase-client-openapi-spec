@@ -14831,8 +14831,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -14916,9 +14916,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -14950,9 +14950,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -15321,9 +15321,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -15338,6 +15335,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -15349,15 +15349,15 @@
             "name": "samples.construct_library_sets",
             "in": "query",
             "schema": {
-              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
-              "type": "array",
-              "title": "Construct Library Sets",
-              "comment": "See construct_library_set.json for available identifiers.",
               "items": {
                 "title": "Construct Library Set",
                 "type": "string",
                 "linkTo": "ConstructLibrarySet"
-              }
+              },
+              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
+              "comment": "See construct_library_set.json for available identifiers.",
+              "title": "Construct Library Sets",
+              "type": "array"
             },
             "description": "Filter by samples.construct_library_sets",
             "style": "form",
@@ -15398,20 +15398,20 @@
             "name": "samples.modifications",
             "in": "query",
             "schema": {
-              "description": "Links to modifications applied to this biosample.",
-              "type": "array",
-              "maxItems": 2,
-              "title": "Modifications",
               "items": {
                 "type": "string",
+                "title": "Modification",
                 "linkTo": [
                   "CrisprModification",
                   "DegronModification"
                 ],
-                "title": "Modification",
                 "comment": "See modification.json for available identifiers.",
                 "description": "Link to a modification applied to this biosample."
-              }
+              },
+              "description": "Links to modifications applied to this biosample.",
+              "maxItems": 2,
+              "title": "Modifications",
+              "type": "array"
             },
             "description": "Filter by samples.modifications",
             "style": "form",
@@ -15568,8 +15568,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -15580,15 +15580,15 @@
             "name": "samples.treatments",
             "in": "query",
             "schema": {
-              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
-              "type": "array",
-              "title": "Treatments",
               "items": {
                 "type": "string",
-                "linkTo": "Treatment",
                 "title": "Treatment",
+                "linkTo": "Treatment",
                 "comment": "See treatment.json for available identifiers."
-              }
+              },
+              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
+              "title": "Treatments",
+              "type": "array"
             },
             "description": "Filter by samples.treatments",
             "style": "form",
@@ -16228,8 +16228,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -16318,9 +16318,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -16352,9 +16352,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -16722,9 +16722,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -16739,6 +16736,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -16750,15 +16750,15 @@
             "name": "samples.construct_library_sets",
             "in": "query",
             "schema": {
-              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
-              "type": "array",
-              "title": "Construct Library Sets",
-              "comment": "See construct_library_set.json for available identifiers.",
               "items": {
                 "title": "Construct Library Set",
                 "type": "string",
                 "linkTo": "ConstructLibrarySet"
-              }
+              },
+              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
+              "comment": "See construct_library_set.json for available identifiers.",
+              "title": "Construct Library Sets",
+              "type": "array"
             },
             "description": "Filter by samples.construct_library_sets",
             "style": "form",
@@ -16799,20 +16799,20 @@
             "name": "samples.modifications",
             "in": "query",
             "schema": {
-              "description": "Links to modifications applied to this biosample.",
-              "type": "array",
-              "maxItems": 2,
-              "title": "Modifications",
               "items": {
                 "type": "string",
+                "title": "Modification",
                 "linkTo": [
                   "CrisprModification",
                   "DegronModification"
                 ],
-                "title": "Modification",
                 "comment": "See modification.json for available identifiers.",
                 "description": "Link to a modification applied to this biosample."
-              }
+              },
+              "description": "Links to modifications applied to this biosample.",
+              "maxItems": 2,
+              "title": "Modifications",
+              "type": "array"
             },
             "description": "Filter by samples.modifications",
             "style": "form",
@@ -16969,8 +16969,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -16981,15 +16981,15 @@
             "name": "samples.treatments",
             "in": "query",
             "schema": {
-              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
-              "type": "array",
-              "title": "Treatments",
               "items": {
                 "type": "string",
-                "linkTo": "Treatment",
                 "title": "Treatment",
+                "linkTo": "Treatment",
                 "comment": "See treatment.json for available identifiers."
-              }
+              },
+              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
+              "title": "Treatments",
+              "type": "array"
             },
             "description": "Filter by samples.treatments",
             "style": "form",
@@ -17810,9 +17810,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -17827,9 +17827,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -19167,8 +19167,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -19259,9 +19259,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -19293,9 +19293,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -19596,9 +19596,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -19613,6 +19610,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -19624,15 +19624,15 @@
             "name": "samples.construct_library_sets",
             "in": "query",
             "schema": {
-              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
-              "type": "array",
-              "title": "Construct Library Sets",
-              "comment": "See construct_library_set.json for available identifiers.",
               "items": {
                 "title": "Construct Library Set",
                 "type": "string",
                 "linkTo": "ConstructLibrarySet"
-              }
+              },
+              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
+              "comment": "See construct_library_set.json for available identifiers.",
+              "title": "Construct Library Sets",
+              "type": "array"
             },
             "description": "Filter by samples.construct_library_sets",
             "style": "form",
@@ -19673,20 +19673,20 @@
             "name": "samples.modifications",
             "in": "query",
             "schema": {
-              "description": "Links to modifications applied to this biosample.",
-              "type": "array",
-              "maxItems": 2,
-              "title": "Modifications",
               "items": {
                 "type": "string",
+                "title": "Modification",
                 "linkTo": [
                   "CrisprModification",
                   "DegronModification"
                 ],
-                "title": "Modification",
                 "comment": "See modification.json for available identifiers.",
                 "description": "Link to a modification applied to this biosample."
-              }
+              },
+              "description": "Links to modifications applied to this biosample.",
+              "maxItems": 2,
+              "title": "Modifications",
+              "type": "array"
             },
             "description": "Filter by samples.modifications",
             "style": "form",
@@ -19843,8 +19843,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -19855,15 +19855,15 @@
             "name": "samples.treatments",
             "in": "query",
             "schema": {
-              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
-              "type": "array",
-              "title": "Treatments",
               "items": {
                 "type": "string",
-                "linkTo": "Treatment",
                 "title": "Treatment",
+                "linkTo": "Treatment",
                 "comment": "See treatment.json for available identifiers."
-              }
+              },
+              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
+              "title": "Treatments",
+              "type": "array"
             },
             "description": "Filter by samples.treatments",
             "style": "form",
@@ -20704,8 +20704,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -20804,9 +20804,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -20838,9 +20838,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -21319,9 +21319,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -21336,6 +21333,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -21675,8 +21675,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -22495,8 +22495,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -22583,9 +22583,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -22617,9 +22617,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -23043,9 +23043,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -23060,6 +23057,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -23071,15 +23071,15 @@
             "name": "samples.construct_library_sets",
             "in": "query",
             "schema": {
-              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
-              "type": "array",
-              "title": "Construct Library Sets",
-              "comment": "See construct_library_set.json for available identifiers.",
               "items": {
                 "title": "Construct Library Set",
                 "type": "string",
                 "linkTo": "ConstructLibrarySet"
-              }
+              },
+              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
+              "comment": "See construct_library_set.json for available identifiers.",
+              "title": "Construct Library Sets",
+              "type": "array"
             },
             "description": "Filter by samples.construct_library_sets",
             "style": "form",
@@ -23120,20 +23120,20 @@
             "name": "samples.modifications",
             "in": "query",
             "schema": {
-              "description": "Links to modifications applied to this biosample.",
-              "type": "array",
-              "maxItems": 2,
-              "title": "Modifications",
               "items": {
                 "type": "string",
+                "title": "Modification",
                 "linkTo": [
                   "CrisprModification",
                   "DegronModification"
                 ],
-                "title": "Modification",
                 "comment": "See modification.json for available identifiers.",
                 "description": "Link to a modification applied to this biosample."
-              }
+              },
+              "description": "Links to modifications applied to this biosample.",
+              "maxItems": 2,
+              "title": "Modifications",
+              "type": "array"
             },
             "description": "Filter by samples.modifications",
             "style": "form",
@@ -23290,8 +23290,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -23302,15 +23302,15 @@
             "name": "samples.treatments",
             "in": "query",
             "schema": {
-              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
-              "type": "array",
-              "title": "Treatments",
               "items": {
                 "type": "string",
-                "linkTo": "Treatment",
                 "title": "Treatment",
+                "linkTo": "Treatment",
                 "comment": "See treatment.json for available identifiers."
-              }
+              },
+              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
+              "title": "Treatments",
+              "type": "array"
             },
             "description": "Filter by samples.treatments",
             "style": "form",
@@ -23997,8 +23997,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by donors.taxa",
@@ -24085,9 +24085,9 @@
             "schema": {
               "type": "array",
               "items": {
+                "title": "Content Type",
                 "description": "The type of content in the file.",
                 "type": "string",
-                "title": "Content Type",
                 "comment": "Content Type describes the content of the file."
               }
             },
@@ -24119,9 +24119,9 @@
               "type": "array",
               "items": {
                 "description": "The file format or extension of the file.",
+                "comment": "This property is overwritten by the subclasses to define specific enum values.",
                 "type": "string",
-                "title": "File Format",
-                "comment": "This property is overwritten by the subclasses to define specific enum values."
+                "title": "File Format"
               }
             },
             "description": "Filter by files.file_format",
@@ -24543,9 +24543,6 @@
             "name": "samples.classifications",
             "in": "query",
             "schema": {
-              "description": "The general category of this type of sample.",
-              "type": "array",
-              "title": "Classifications",
               "items": {
                 "type": "string",
                 "title": "Classification",
@@ -24560,6 +24557,9 @@
                 ],
                 "description": "The type of the in vitro system."
               },
+              "description": "The general category of this type of sample.",
+              "title": "Classifications",
+              "type": "array",
               "maxItems": 2,
               "comment": "The specified category should match the ontology type used to describe this type of in vitro system. For example 'brain organoid' uses UBERON ontology, cell lines use CL ontology, etc. These terms are in concordance with NCIT definitions."
             },
@@ -24647,20 +24647,20 @@
             "name": "samples.modifications",
             "in": "query",
             "schema": {
-              "description": "Links to modifications applied to this biosample.",
-              "type": "array",
-              "maxItems": 2,
-              "title": "Modifications",
               "items": {
                 "type": "string",
+                "title": "Modification",
                 "linkTo": [
                   "CrisprModification",
                   "DegronModification"
                 ],
-                "title": "Modification",
                 "comment": "See modification.json for available identifiers.",
                 "description": "Link to a modification applied to this biosample."
-              }
+              },
+              "description": "Links to modifications applied to this biosample.",
+              "maxItems": 2,
+              "title": "Modifications",
+              "type": "array"
             },
             "description": "Filter by samples.modifications",
             "style": "form",
@@ -24817,8 +24817,8 @@
               "type": "array",
               "items": {
                 "description": "The species of the organism.",
-                "type": "string",
-                "title": "Taxa"
+                "title": "Taxa",
+                "type": "string"
               }
             },
             "description": "Filter by samples.taxa",
@@ -24829,15 +24829,15 @@
             "name": "samples.treatments",
             "in": "query",
             "schema": {
-              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
-              "type": "array",
-              "title": "Treatments",
               "items": {
                 "type": "string",
-                "linkTo": "Treatment",
                 "title": "Treatment",
+                "linkTo": "Treatment",
                 "comment": "See treatment.json for available identifiers."
-              }
+              },
+              "description": "A list of treatments applied to the biosample with the purpose of perturbation.",
+              "title": "Treatments",
+              "type": "array"
             },
             "description": "Filter by samples.treatments",
             "style": "form",
@@ -34975,15 +34975,15 @@
             "name": "multiplexed_samples.construct_library_sets",
             "in": "query",
             "schema": {
-              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
-              "type": "array",
-              "title": "Construct Library Sets",
-              "comment": "See construct_library_set.json for available identifiers.",
               "items": {
                 "title": "Construct Library Set",
                 "type": "string",
                 "linkTo": "ConstructLibrarySet"
-              }
+              },
+              "description": "The construct library sets of vectors introduced to this sample prior to performing an assay.",
+              "comment": "See construct_library_set.json for available identifiers.",
+              "title": "Construct Library Sets",
+              "type": "array"
             },
             "description": "Filter by multiplexed_samples.construct_library_sets",
             "style": "form",
