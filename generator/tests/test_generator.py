@@ -430,7 +430,7 @@ def test_generator_generate_snapshot(snapshot, raw_schemas, raw_embedded_fields,
     from generator.generate import normalize_schemas, clean_schemas
     schemas = normalize_schemas(clean_schemas(raw_schemas))
     slim_embedded_fields = get_slim_embedded_fields(raw_embedded_fields, raw_schemas)
-    spec = generate_openapi_spec(schemas, collection_names, slim_embedded_fields)
+    spec = generate_openapi_spec(schemas, collection_names, slim_embedded_fields, version='0.0.0')
     snapshot.assert_match(
         json.dumps(
             spec,

@@ -17,9 +17,9 @@ def get_version():
     return requests.get(f'{URL}').json()['app_version']
 
 
-def generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields):
+def generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields, version=None):
     openapi_spec = OPENAPI_SPEC_TEMPLATE
-    openapi_spec['info']['version'] = get_version()
+    openapi_spec['info']['version'] = get_version() if version is None else version
 
     # Add all schemas to components/schemas and refs to @graph items
     for schema_name, schema in schemas.items():
