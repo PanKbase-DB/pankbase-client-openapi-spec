@@ -12,12 +12,14 @@ URL = 'https://api.data.igvf.org'
 
 SCHEMAS_CACHE = {}
 
-VERSION = "0.1.0"
+
+def get_version():
+    return requests.get(f'{URL}').json()['app_version']
 
 
 def generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields):
     openapi_spec = OPENAPI_SPEC_TEMPLATE
-    openapi_spec['info']['version'] = VERSION
+    openapi_spec['info']['version'] = get_version()
 
     # Add all schemas to components/schemas and refs to @graph items
     for schema_name, schema in schemas.items():
