@@ -2,23 +2,62 @@ name: Build and update IGVF clients
 
 on:
   workflow_dispatch:
+
 jobs:
   build-and-update-clients:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate a token
-        id: generate-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.IGVF_CLIENT_BUILDER_APP_ID }}
-          private-key: ${{ secrets.IGVF_CLIENT_BUILDER_PRIVATE_KEY }}
-          owner: "IGVF-DACC"
-          repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
-      - name: Clone remote repo
-        env:
-          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
-        run: |
-          gh auth setup-git
-          git clone https://github.com/IGVF-DACC/igvf-python-client.git
-          ls
-          ls igvf-python-client/
+    - name: Generate a token
+      id: generate-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ vars.IGVF_CLIENT_BUILDER_APP_ID }}
+        private-key: ${{ secrets.IGVF_CLIENT_BUILDER_PRIVATE_KEY }}
+        owner: "IGVF-DACC"
+        repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
+
+    - name: Install OpenAPI Generator CLI
+      run: |
+        npm install @openapitools/openapi-generator-cli -g
+
+    - name: Build and update igvf-python-client
+      env:
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+      run: |
+        OPENAPI_VERSION=$(jq -r '.info.version' ./openapi_spec.json)
+        gh auth setup-git
+        git clone https://github.com/IGVF-DACC/igvf-python-client.git
+        cd igvf-python-client
+        git checkout -b test-update
+        openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-python-client"
+        git add .
+        git commit -m "Update version $OPENAPI_VERSION"
+        git push origin test-update
+
+    - name: Build and update igvf-async-python-client
+      env:
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+      run: |
+        OPENAPI_VERSION=$(jq -r '.info.version' ./openapi_spec.json)
+        gh auth setup-git
+        git clone https://github.com/IGVF-DACC/igvf-async-python-client.git
+        cd igvf-async-python-client
+        git checkout -b test-update
+        openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties library=asyncio,useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=async_igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=AsyncIgvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-async-python-client"
+        git add .
+        git commit -m "Update version $OPENAPI_VERSION"
+        git push origin test-update
+
+    - name: Build and update igvf-r-client
+      env:
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+      run: |
+        OPENAPI_VERSION=$(jq -r '.info.version' ./openapi_spec.json)
+        gh auth setup-git
+        git clone https://github.com/IGVF-DACC/igvf-r-client.git
+        cd igvf-r-client
+        git checkout -b test-update
+        openapi-generator-cli generate -i ../openapi_spec.json -g r -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvfclient,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-host="github.com" --git-user-id="IGVF-DACC" --git-repo-id="igvf-r-client"
+        git add .
+        git commit -m "Update igvf-r-client to version $OPENAPI_VERSION"
+        git push origin test-update
