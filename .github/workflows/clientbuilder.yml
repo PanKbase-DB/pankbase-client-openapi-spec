@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch:
+jobs:
+  build-and-update-clients:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.IGVF_CLIENT_BUILDER_APP_ID }}
+          private-key: ${{ secrets.IGVF_CLIENT_BUILDER_PRIVATE_KEY }}
+
+      - name: Use the token
+        env:
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+        run: |
+          git clone git@github.com:IGVF-DACC/igvf-python-client.git
+          ls
+          ls igvf-python-client/
