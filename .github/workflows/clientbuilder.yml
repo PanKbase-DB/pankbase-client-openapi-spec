@@ -18,7 +18,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          echo $GITHUB_TOKEN
+          echo ${GITHUB_TOKEN} >> abc.txt
+          cat abc.txt
 #          git clone https://$GITHUB_TOKEN@github.com/IGVF-DACC/igvf-client-openapi-spec.git
 #          ls
 #          ls igvf-python-client/
