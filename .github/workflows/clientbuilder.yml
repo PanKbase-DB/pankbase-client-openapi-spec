@@ -37,7 +37,7 @@ jobs:
         gh auth setup-git
         git checkout -b update-$OPENAPI_VERSION
         git add openapi_spec.json
-        git commit -m "Update version $OPENAPI_VERSION"
+        git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
         git checkout main
         git pull
@@ -65,7 +65,7 @@ jobs:
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-python-client"
         git add .
-        git commit -m "Update version $OPENAPI_VERSION"
+        git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
         git checkout main
         git pull
@@ -84,7 +84,7 @@ jobs:
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties library=asyncio,useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=async_igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=AsyncIgvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-async-python-client"
         git add .
-        git commit -m "Update version $OPENAPI_VERSION"
+        git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
         git checkout main
         git pull
@@ -103,7 +103,7 @@ jobs:
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g r -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvfclient,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-host="github.com" --git-user-id="IGVF-DACC" --git-repo-id="igvf-r-client"
         git add .
-        git commit -m "Update version $OPENAPI_VERSION"
+        git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
         git checkout main
         git pull
