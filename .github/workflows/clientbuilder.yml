@@ -26,7 +26,7 @@ jobs:
 
     - name: Install OpenAPI Generator CLI
       run: |
-        npm install @openapitools/openapi-generator-cli@7.8.0 -g
+        npm install -g @openapitools/openapi-generator-cli@2.13.5
 
     - name: Build and update igvf-python-client
       env:
