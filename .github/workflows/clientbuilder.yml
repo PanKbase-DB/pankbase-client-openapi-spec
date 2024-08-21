@@ -24,6 +24,24 @@ jobs:
         git config --global user.email "keenangraham@stanford.edu"
         git config --global user.name "Keenan Graham"
 
+    - name: Generate OpenAPI specification
+      run: |
+        pip install -r requirements.txt
+        python generate.py
+
+    - name: Commit OpenAPI specification
+      run: |
+        OPENAPI_VERSION=$(jq -r '.info.version' ./openapi_spec.json)
+        git checkout -b update-$OPENAPI_VERSION
+        git add openapi_spec.json
+        git commit -m "Update version $OPENAPI_VERSION"
+        git push origin update-$OPENAPI_VERSION
+        git checkout main
+        git pull
+        git merge update-$OPENAPI_VERSION --ff-only
+        git push origin main
+        gh release create v$OPENAPI_VERSION -t "v$OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
+
     - name: Install Node.js and npm
       uses: actions/setup-node@v4
       with:
