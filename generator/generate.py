@@ -311,6 +311,7 @@ def get_slim_embedded_fields(raw_embedded_fields, raw_schemas):
 def get_schema_names_to_collection_names():
     return requests.get(f'{URL}/collection-names').json()
 
+
 def clean_schemas(schemas):
     schemas = {
         k: clean_schema(v)
