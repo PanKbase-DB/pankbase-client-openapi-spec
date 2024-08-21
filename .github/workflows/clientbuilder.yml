@@ -19,6 +19,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: |
-          git clone git@github.com:IGVF-DACC/igvf-python-client.git
+          git clone https://github.com/IGVF-DACC/igvf-python-client.git
           ls
           ls igvf-python-client/
