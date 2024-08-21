@@ -12,12 +12,13 @@ jobs:
         with:
           app-id: ${{ vars.IGVF_CLIENT_BUILDER_APP_ID }}
           private-key: ${{ secrets.IGVF_CLIENT_BUILDER_PRIVATE_KEY }}
+          owner: "IGVF-DACC"
           repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
 
       - name: Use the token
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: |
-          git clone https://${{ steps.generate-token.outputs.token }}@github.com/IGVF-DACC/igvf-python-client.git
+          git clone git@github.com:IGVF-DACC/igvf-python-client.git
           ls
           ls igvf-python-client/
