@@ -50,7 +50,7 @@ jobs:
         git pull
         git merge update-$OPENAPI_VERSION --ff-only
         git push origin main
-        gh release create v$OPENAPI_VERSION -t "Version $OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
+        gh release create v$OPENAPI_VERSION -t "v$OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
 
     - name: Build and update igvf-async-python-client
       env:
@@ -69,7 +69,7 @@ jobs:
         git pull
         git merge update-$OPENAPI_VERSION --ff-only
         git push origin main
-        gh release create v$OPENAPI_VERSION -t "Version $OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
+        gh release create v$OPENAPI_VERSION -t "v$OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
 
     - name: Build and update igvf-r-client
       env:
@@ -88,4 +88,4 @@ jobs:
         git pull
         git merge update-$OPENAPI_VERSION --ff-only
         git push origin main
-        gh release create v$OPENAPI_VERSION -t "Version $OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
+        gh release create v$OPENAPI_VERSION -t "v$OPENAPI_VERSION" -n "Release version $OPENAPI_VERSION"
