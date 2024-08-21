@@ -12,6 +12,7 @@ jobs:
         with:
           app-id: ${{ vars.IGVF_CLIENT_BUILDER_APP_ID }}
           private-key: ${{ secrets.IGVF_CLIENT_BUILDER_PRIVATE_KEY }}
+          repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
 
       - name: Use the token
         env:
