@@ -7,6 +7,9 @@ jobs:
   build-and-update-clients:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Generate a token
       id: generate-token
       uses: actions/create-github-app-token@v1
