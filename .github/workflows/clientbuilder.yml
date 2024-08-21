@@ -30,8 +30,11 @@ jobs:
         python generate.py
 
     - name: Commit OpenAPI specification
+      env:
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
       run: |
         OPENAPI_VERSION=$(jq -r '.info.version' ./openapi_spec.json)
+        gh auth setup-git
         git checkout -b update-$OPENAPI_VERSION
         git add openapi_spec.json
         git commit -m "Update version $OPENAPI_VERSION"
