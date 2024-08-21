@@ -5704,10 +5704,112 @@
                     "Source",
                     "Treatment",
                     "User",
+                    "Workflow",
+                    "AccessKey",
+                    "AnalysisStep",
+                    "AnalysisStepVersion",
+                    "Award",
+                    "Biomarker",
+                    "Document",
+                    "HumanDonor",
+                    "RodentDonor",
+                    "AlignmentFile",
+                    "ConfigurationFile",
+                    "GenomeBrowserAnnotationFile",
+                    "ImageFile",
+                    "MatrixFile",
+                    "ModelFile",
+                    "ReferenceFile",
+                    "SequenceFile",
+                    "SignalFile",
+                    "TabularFile",
+                    "AnalysisSet",
+                    "AuxiliarySet",
+                    "ConstructLibrarySet",
+                    "CuratedSet",
+                    "MeasurementSet",
+                    "ModelSet",
+                    "PredictionSet",
+                    "Gene",
+                    "Image",
+                    "InstitutionalCertificate",
+                    "Lab",
+                    "CrisprModification",
+                    "DegronModification",
+                    "AssayTerm",
+                    "PhenotypeTerm",
+                    "PlatformTerm",
+                    "SampleTerm",
+                    "OpenReadingFrame",
+                    "Page",
+                    "PhenotypicFeature",
+                    "Publication",
+                    "InVitroSystem",
+                    "MultiplexedSample",
+                    "PrimaryCell",
+                    "TechnicalSample",
+                    "Tissue",
+                    "WholeOrganism",
+                    "Software",
+                    "SoftwareVersion",
+                    "Source",
+                    "Treatment",
+                    "User",
                     "Workflow"
                 ],
                 "type": "string",
                 "x-enum-varnames": [
+                    "AccessKey",
+                    "AnalysisStep",
+                    "AnalysisStepVersion",
+                    "Award",
+                    "Biomarker",
+                    "Document",
+                    "HumanDonor",
+                    "RodentDonor",
+                    "AlignmentFile",
+                    "ConfigurationFile",
+                    "GenomeBrowserAnnotationFile",
+                    "ImageFile",
+                    "MatrixFile",
+                    "ModelFile",
+                    "ReferenceFile",
+                    "SequenceFile",
+                    "SignalFile",
+                    "TabularFile",
+                    "AnalysisSet",
+                    "AuxiliarySet",
+                    "ConstructLibrarySet",
+                    "CuratedSet",
+                    "MeasurementSet",
+                    "ModelSet",
+                    "PredictionSet",
+                    "Gene",
+                    "Image",
+                    "InstitutionalCertificate",
+                    "Lab",
+                    "CrisprModification",
+                    "DegronModification",
+                    "AssayTerm",
+                    "PhenotypeTerm",
+                    "PlatformTerm",
+                    "SampleTerm",
+                    "OpenReadingFrame",
+                    "Page",
+                    "PhenotypicFeature",
+                    "Publication",
+                    "InVitroSystem",
+                    "MultiplexedSample",
+                    "PrimaryCell",
+                    "TechnicalSample",
+                    "Tissue",
+                    "WholeOrganism",
+                    "Software",
+                    "SoftwareVersion",
+                    "Source",
+                    "Treatment",
+                    "User",
+                    "Workflow",
                     "AccessKey",
                     "AnalysisStep",
                     "AnalysisStepVersion",
@@ -22964,23 +23066,6 @@
                                 "type": "string"
                             },
                             "title": "Aliases",
-                            "type": "array"
-                        },
-                        "style": "form"
-                    },
-                    {
-                        "description": "Filter by orf_list.gene",
-                        "explode": true,
-                        "in": "query",
-                        "name": "orf_list.gene",
-                        "schema": {
-                            "description": "ENSEMBL GeneID of official nomenclature approved gene. The GeneID does not include the current version number suffix.",
-                            "items": {
-                                "description": "An identifier of the Gene.",
-                                "title": "ENSEMBL GeneID",
-                                "type": "string"
-                            },
-                            "title": "ENSEMBL GeneID",
                             "type": "array"
                         },
                         "style": "form"
@@ -48060,6 +48145,159 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Workflow"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AccessKey"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AnalysisStep"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AnalysisStepVersion"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Award"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Biomarker"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Document"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/HumanDonor"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/RodentDonor"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AlignmentFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ConfigurationFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/GenomeBrowserAnnotationFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ImageFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/MatrixFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ModelFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ReferenceFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/SequenceFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/SignalFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/TabularFile"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AnalysisSet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AuxiliarySet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ConstructLibrarySet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/CuratedSet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/MeasurementSet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/ModelSet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/PredictionSet"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Gene"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Image"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/InstitutionalCertificate"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Lab"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/CrisprModification"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/DegronModification"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/AssayTerm"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/PhenotypeTerm"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/PlatformTerm"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/SampleTerm"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/OpenReadingFrame"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Page"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/PhenotypicFeature"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Publication"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/InVitroSystem"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/MultiplexedSample"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/PrimaryCell"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/TechnicalSample"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tissue"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/WholeOrganism"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Software"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/SoftwareVersion"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Source"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Treatment"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/User"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Workflow"
                                                     }
                                                 ],
                                                 "title": "SearchResultItem"
@@ -58546,6 +58784,159 @@
                                         "propertyName": "@type"
                                     },
                                     "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/AccessKey"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AnalysisStep"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AnalysisStepVersion"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Award"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Biomarker"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Document"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/HumanDonor"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/RodentDonor"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AlignmentFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ConfigurationFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/GenomeBrowserAnnotationFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ImageFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/MatrixFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ModelFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ReferenceFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SequenceFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SignalFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/TabularFile"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AnalysisSet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AuxiliarySet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ConstructLibrarySet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/CuratedSet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/MeasurementSet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/ModelSet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PredictionSet"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Gene"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Image"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/InstitutionalCertificate"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Lab"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/CrisprModification"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/DegronModification"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/AssayTerm"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PhenotypeTerm"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PlatformTerm"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SampleTerm"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/OpenReadingFrame"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Page"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PhenotypicFeature"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Publication"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/InVitroSystem"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/MultiplexedSample"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PrimaryCell"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/TechnicalSample"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Tissue"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/WholeOrganism"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Software"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SoftwareVersion"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Source"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Treatment"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/User"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Workflow"
+                                        },
                                         {
                                             "$ref": "#/components/schemas/AccessKey"
                                         },
