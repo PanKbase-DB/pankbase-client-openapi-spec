@@ -16,6 +16,11 @@ jobs:
         owner: "IGVF-DACC"
         repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
 
+    - name: Install Node.js and npm
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
     - name: Install OpenAPI Generator CLI
       run: |
         npm install @openapitools/openapi-generator-cli -g
