@@ -18,6 +18,6 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: |
-          gh repo clone git@github.com:IGVF-DACC/igvf-python-client.git
+          gh repo clone https://github.com/IGVF-DACC/igvf-python-client.git
           ls
           ls igvf-python-client/
