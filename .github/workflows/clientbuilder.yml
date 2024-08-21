@@ -16,11 +16,9 @@ jobs:
           repositories: "igvf-client-openapi-spec,igvf-python-client,igvf-async-python-client,igvf-r-client"
       - name: Clone remote repo
         env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: |
-          echo hello >> abc.txt
-          echo ${GITHUB_TOKEN} >> abc.txt
-          cat abc.txt
-#          git clone https://$GITHUB_TOKEN@github.com/IGVF-DACC/igvf-client-openapi-spec.git
-#          ls
-#          ls igvf-python-client/
+          gh auth setup-git
+          git clone https://github.com/IGVF-DACC/igvf-python-client.git
+          ls
+          ls igvf-python-client/
