@@ -82,7 +82,7 @@ jobs:
         git clone https://github.com/IGVF-DACC/igvf-async-python-client.git
         cd igvf-async-python-client
         git checkout -b update-$OPENAPI_VERSION
-        openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties library=asyncio,useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=async_igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=AsyncIgvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-async-python-client"
+        openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties library=asyncio,useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvf_async_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=AsyncIgvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-async-python-client"
         git add .
         git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
