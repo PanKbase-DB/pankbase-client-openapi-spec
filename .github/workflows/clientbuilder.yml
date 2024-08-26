@@ -64,6 +64,7 @@ jobs:
         cd igvf-python-client
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvf_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-python-client"
+        cp ../openapi_spec.json .
         git add .
         git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
@@ -83,6 +84,7 @@ jobs:
         cd igvf-async-python-client
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g python -t ./templates --additional-properties library=asyncio,useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvf_async_client,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=AsyncIgvf --parameter-name-mappings field=include_fields --git-user-id="IGVF-DACC" --git-repo-id="igvf-async-python-client"
+        cp ../openapi_spec.json .
         git add .
         git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
@@ -102,6 +104,7 @@ jobs:
         cd igvf-r-client
         git checkout -b update-$OPENAPI_VERSION
         openapi-generator-cli generate -i ../openapi_spec.json -g r -t ./templates --additional-properties useOneOfDiscriminatorLookup=true,autosetConstants=true,packageName=igvfclient,packageVersion="$OPENAPI_VERSION" --openapi-normalizer SET_TAGS_FOR_ALL_OPERATIONS=Igvf --parameter-name-mappings field=include_fields --git-host="github.com" --git-user-id="IGVF-DACC" --git-repo-id="igvf-r-client"
+        cp ../openapi_spec.json .
         git add .
         git commit -m "update-version-$OPENAPI_VERSION"
         git push origin update-$OPENAPI_VERSION
