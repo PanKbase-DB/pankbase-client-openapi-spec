@@ -352,7 +352,7 @@ def test_generator_fill_in_collection_template(raw_schemas, raw_embedded_fields,
             'get': {
                 'tags': ['Collections'],
                 'summary': 'List items in the SequenceFile collection.',
-                'description': 'Collection endpoint that accepts various query parameters to filter, sort, and paginate SequenceFile items. Supports filtering on fields within SequenceFile items.', 'operationId': 'sequence_files',
+                'description': 'Collection endpoint that accepts various query parameters to filter and sort SequenceFile items. Supports filtering on fields within SequenceFile items.', 'operationId': 'sequence_files',
                 'parameters': [
                     {'name': 'query', 'in': 'query', 'schema': {'type': 'string'}, 'description': 'Query string for searching.', 'example': 'variant flowfish jurkat'},
                     {'name': 'frame', 'in': 'query', 'required': True, 'schema': {'type': 'string', 'enum': ['object']}, 'description': 'Constant value. Do not set.'},
