@@ -80,8 +80,8 @@ OPENAPI_SPEC_TEMPLATE =  {
         "/search": {
             "get": {
                 "tags": ["IGVF"],
-                "summary": "Search for items in the IGVF Project.",
-                "description": "Search endpoint that accepts various query parameters to filter, sort, and paginate results. Supports complex filtering on types and fields within JSON objects.",
+                "summary": "Search for items on the IGVF Data Portal.",
+                "description": "Search endpoint that accepts various query parameters to filter and sort results. Supports complex filtering on item types and fields within items.",
                 "operationId": "search",
                 "parameters": [
                     {
@@ -252,7 +252,7 @@ OPENAPI_SPEC_TEMPLATE =  {
         "/multireport.tsv": {
             "get": {
                 "tags": ["IGVF"],
-                "summary": "Generate a report based on search query. All results are returned.",
+                "summary": "Generate a TSV file report based on search query. All results are returned.",
                 "description": "Like /search endpoint but returns a TSV file instead of JSON. Must specify item type(s).",
                 "operationId": "report",
                 "parameters": [
@@ -637,7 +637,7 @@ def get_collection_template(collection_name, schema_name):
             "get": {
                 "tags": ["Collections"],
                 "summary": f"List items in the {schema_name} collection.",
-                "description": f"Collection endpoint that accepts various query parameters to filter, sort, and paginate {schema_name} items. Supports filtering on fields within {schema_name} items.",
+                "description": f"Collection endpoint that accepts various query parameters to filter and sort {schema_name} items. Supports filtering on fields within {schema_name} items.",
                 "operationId": f"{collection_name.replace('-', '_')}",
                 "parameters": [
                     {
