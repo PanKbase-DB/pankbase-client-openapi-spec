@@ -256,6 +256,8 @@ def normalize_schemas(schemas):
     for k in schemas.keys():
         if 'required' in schemas[k]:
             del schemas[k]['required']
+        if 'not' in schemas[k]:
+            del schemas[k]['not']
         # Normalize content_type, input_content_types, output_content_types so they don't generate multiple OpenAPI models.
         if 'content_type' in schemas[k]['properties']:
             schemas[k]['properties']['content_type'].pop('enum', None)
