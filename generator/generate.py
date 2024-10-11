@@ -348,7 +348,7 @@ def generate():
     schema_names_to_collection_names = get_schema_names_to_collection_names()
     raw_embedded_fields = get_raw_embedded_fields()
     slim_embedded_fields = get_slim_embedded_fields(raw_embedded_fields, raw_schemas)
-    openapi_spec = generate_openapi_spec(schemas, schema_names_to_collection_names)
+    openapi_spec = generate_openapi_spec(schemas, schema_names_to_collection_names, slim_embedded_fields, version='52.0.2')
     return openapi_spec
 
 
