@@ -4671,35 +4671,6 @@
             "explode": true
           },
           {
-            "name": "related_donors.donor.@id",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "title": "ID"
-              }
-            },
-            "description": "Filter by related_donors.donor.@id",
-            "style": "form",
-            "explode": true
-          },
-          {
-            "name": "related_donors.donor.accession",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "title": "Accession",
-                "description": "A unique identifier to be used to reference the object prefixed with PKB."
-              }
-            },
-            "description": "Filter by related_donors.donor.accession",
-            "style": "form",
-            "explode": true
-          },
-          {
             "name": "release_timestamp",
             "in": "query",
             "schema": {
@@ -45485,50 +45456,6 @@
             "title": "Virtual",
             "description": "Virtual donors are not representing actual human or model organism donors, samples coming from which were used in experiments, but rather capturing metadata about hypothetical donors that the reported analysis results are relevant for.",
             "type": "boolean"
-          },
-          "related_donors": {
-            "title": "Related Donors",
-            "description": "Familial relations of this donor also in PanKbase .",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-              "title": "Related Donor",
-              "description": "Familial relation of this donor.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "donor",
-                "relationship_type"
-              ],
-              "properties": {
-                "donor": {
-                  "title": "Related Donor Identifier",
-                  "description": "An identifier for the related donor.",
-                  "type": "string"
-                },
-                "relationship_type": {
-                  "title": "Relationship Type",
-                  "description": "A descriptive term for the related donor\u2019s relationship to this donor.",
-                  "type": "string",
-                  "enum": [
-                    "aunt",
-                    "child",
-                    "first cousin once removed",
-                    "first cousin",
-                    "fraternal twin",
-                    "grandparent",
-                    "half-sibling",
-                    "niece",
-                    "nephew",
-                    "parent",
-                    "paternal twin",
-                    "sibling",
-                    "second cousin",
-                    "uncle"
-                  ]
-                }
-              }
-            }
           },
           "ethnicities": {
             "title": "Self-Reported Ethnicity",
