@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PanKbase API" />
-  <title>SwaggerUI</title>
-  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css" />
-</head>
-<body>
-<div id="swagger-ui"></div>
-<script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js" crossorigin></script>
-<script>
-  window.onload = () => {
-    window.ui = SwaggerUIBundle({
-      url: 'https://raw.githubusercontent.com/PanKbase-DB/pankbase-client-openapi-spec/main/openapi_spec.json',
-      dom_id: '#swagger-ui',
-    });
-  };
-</script>
-</body>
+<html>
+  <head>
+    <title>Custom API Documentation</title>
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  </head>
+  <body>
+    <redoc></redoc>
+
+    <script>
+      Redoc.init(
+        "https://raw.githubusercontent.com/PanKbase-DB/pankbase-client-openapi-spec/main/openapi_spec.json",  // The location of your OpenAPI spec
+        {
+          scrollYOffset: 50,  // Offset for sticky scrolling
+          theme: {
+            colors: {
+              primary: {
+                main: "#DD5522"  // Customize your theme colors
+              }
+            },
+            typography: {
+              fontFamily: "Arial, sans-serif"  // Customize fonts
+            }
+          }
+        },
+        document.querySelector("redoc")
+      );
+    </script>
+  </body>
 </html>
